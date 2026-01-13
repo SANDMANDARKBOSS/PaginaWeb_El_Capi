@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante El Capi - Alausí</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="loader-wrapper">
+        <div class="puerta-izq"></div>
+        <div class="puerta-der"></div>
+        <div class="loader-content">
+            <img src="./IMG/logo.png" alt="Cargando..." class="logo-loader">
+            <p>Preparando el fogón...</p>
+            <div id="porcentaje">0%</div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-wrapper">
+            <a href="#inicio"><img src="./IMG/logo.png" alt="Logo El Capi" class="logo-img"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#historia">Historia</a></li>
+            <li><a href="#menu">Menú</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio" class="hero-carousel">
+        <div class="carousel-slides">
+            <div class="slide active" style="background-image: url('./IMG/imgHeader.png');"></div>
+            <div class="slide" style="background-image: url('./IMG/imgHeader1.png');"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Bienvenidos a "El Capi"</h1>
+            <p>Con Sazón Casero, desde el corazón de Alausí.</p>
+            <a href="#menu" class="btn-cta">Ver Nuestra Carta</a>
+        </div>
+    </header>
+
+    <section id="historia" class="container">
+        <h2>Nuestra Historia</h2>
+        <div class="historia-content">
+            <div class="historia-galeria">
+                <img src="./IMG/ToqueFinal.png" alt="Lorena cocinando" class="foto-principal">
+                <div class="fotos-secundarias">
+                    <img src="./IMG/ManosObra.png" alt="Sirviendo" class="foto-peque">
+                    <img src="./IMG/Mercado.png" alt="Ingredientes" class="foto-peque">
+                </div>
+            </div>
+            <div class="texto-historia">
+                <h3>El Sazón de "Lorena"</h3>
+                <p>Detrás de cada plato está el corazón de nuestra fundadora, <strong>Gladys Elisa Yambay
+                        Lopez</strong>, conocida como <strong>"Lorena"</strong>.</p>
+                <p>El Restaurante "El Capi" nació de su sueño de compartir los sabores auténticos de nuestra tierra. Con
+                    recetas heredadas y su toque secreto, hemos convertido nuestra cocina en una parada obligatoria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="promociones" class="container">
+        <h2 style="text-align: center; color: var(--cafe-oscuro); margin-bottom: 40px; font-size: 2.5rem;">
+            ¡Ofertas de la Casa! <i class="fas fa-percent" style="color: #d32f2f;"></i>
+        </h2>
+        <div class="promo-grid">
+            <div class="promo-card highlight-card">
+                <div class="badge-oferta" style="background: #d32f2f;">FIN DE SEMANA</div>
+                <img src="./IMG/Parrillada.png" alt="Parrillada">
+                <div class="promo-info">
+                    <h3>Parrillada "El Capi"</h3>
+                    <p>La favorita del fin de semana. Res, chuleta, pollo y chorizo al carbón.</p>
+                    <div class="oferta-container">
+                        <span class="precio-antes">Precio Normal: $9.50</span>
+                        <div class="precio-final"><span class="signo">$</span>7.50</div>
+                    </div>
+                    <button class="btn-promo pulse-anim" onclick="window.location.href='#menu'">¡Reservar Mesa!</button>
+                </div>
+            </div>
+            <div class="promo-card">
+                <div class="badge-oferta" style="background: var(--naranja);">SUPER DEAL</div>
+                <img src="./IMG/Churrasco.png" alt="Churrasco">
+                <div class="promo-info">
+                    <h3>Churrasco</h3>
+                    <p>El plato más completo de la carta con carne, huevo y aguacate.</p>
+                    <div class="oferta-container">
+                        <span class="precio-antes">Precio Normal: $7.50</span>
+                        <div class="precio-final"><span class="signo">$</span>5.50</div>
+                    </div>
+                    <button class="btn-promo" onclick="window.location.href='#menu'">Pedir Ahora</button>
+                </div>
+            </div>
+            <div class="promo-card">
+                <div class="badge-oferta" style="background: var(--cafe-oscuro);">TRADICIÓN</div>
+                <img src="./IMG/Yahuarlocro.png" alt="Yahuarlocro">
+                <div class="promo-info">
+                    <h3>Yahuarlocro</h3>
+                    <p>Sabor de hogar con aguacate y sangre frita. ¡Como lo hace Lorena!</p>
+                    <div class="oferta-container">
+                        <span class="precio-antes">Precio Normal: $6.00</span>
+                        <div class="precio-final"><span class="signo">$</span>4.50</div>
+                    </div>
+                    <button class="btn-promo" onclick="window.location.href='#menu'">Probar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="container bg-crema">
+        <h2>Nuestra Carta</h2>
+        <div class="filtros">
+            <button onclick="cargarMenu('todos')">Todos</button>
+            <button onclick="cargarMenu('Desayunos')">Desayunos</button>
+            <button onclick="cargarMenu('Almuerzos')">Almuerzos</button>
+            <button onclick="cargarMenu('Meriendas')">Meriendas</button>
+            <button onclick="cargarMenu('Tipicos')">Típicos</button>
+            <button onclick="cargarMenu('Carta')">A la Carta</button>
+            <button onclick="cargarMenu('Bebidas')">Bebidas</button>
+        </div>
+        <div id="lista-platos" class="grid-menu"></div>
+    </section>
+
+    <footer id="ubicacion" class="footer-espoch">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Restaurante El Capi</h3>
+                <p><strong>Dirección:</strong><br>Pablo J. Dávila y Esteban Orozco<br>Alausí, Ecuador</p>
+                <p><strong>Contacto:</strong><br>099 123 4567<br>info@elcapi.com</p>
+
+                <div class="social-icons-footer" style="margin-top: 20px;">
+                    <a href="https://facebook.com" target="_blank" title="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/593991234567" target="_blank" title="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Explorar</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#historia">Nuestra Historia</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Domingo</p>
+                <p class="horario-destacado">07:00 AM - 09:00 PM</p>
+            </div>
+
+            <div class="footer-col map-col">
+                <iframe width="240%" height="500"
+                    style="border:0; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);" loading="lazy"
+                    allowfullscreen
+                    src="https://maps.google.com/maps?q=Parque+13+de+Noviembre,+Alausí&t=&z=16&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Restaurante El Capi © 2026 | Elaborado por Sebastián Yambay</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
