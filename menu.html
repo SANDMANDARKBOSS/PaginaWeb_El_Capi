@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante El Capi - Alausí</title>
+    <title>Menú - Restaurante El Capi</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,18 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
-
-    <div id="loader-wrapper">
-        <div class="puerta-izq"></div>
-        <div class="puerta-der"></div>
-        <div class="loader-content">
-            <img src="./IMG/logo.png" alt="Cargando..." class="logo-loader">
-            <p>Preparando el fogón...</p>
-            <div id="porcentaje">0%</div>
-            <div class="spinner"></div>
-        </div>
-    </div>
+<body class="loaded">
 
     <nav class="navbar">
         <div class="logo-wrapper">
@@ -45,18 +34,80 @@
         </ul>
     </nav>
 
-    <header id="inicio" class="hero-carousel">
-        <div class="carousel-slides">
-            <div class="slide active" style="background-image: url('./IMG/imgHeader.png');"></div>
-            <div class="slide" style="background-image: url('./IMG/imgHeader1.png');"></div>
-        </div>
-        <div class="hero-content">
-            <h1>Bienvenidos a "El Capi"</h1>
-            <p>Con Sazón Casero, desde el corazón de Alausí.</p>
-            <a href="menu.html" class="btn-cta">Ver Nuestra Carta</a>
-        </div>
-    </header>
+    <section id="promociones" class="container" style="margin-top: 100px;">
+        <h2 style="text-align: center; color: var(--cafe-oscuro); margin-bottom: 40px; font-size: 2.5rem;">
+            ¡Ofertas de la Casa! <i class="fas fa-percent" style="color: #d32f2f;"></i>
+        </h2>
 
+        <div class="promo-grid">
+
+            <div class="promo-card highlight-card">
+                <div class="badge-oferta" style="background: #d32f2f;">FIN DE SEMANA</div>
+                <img src="./IMG/Parrillada.png" alt="Parrillada">
+                <div class="promo-info">
+                    <h3>Parrillada "El Capi"</h3>
+                    <p>La favorita del fin de semana. Res, chuleta, pollo y chorizo al carbón.</p>
+                    <div class="oferta-container">
+                        <span class="precio-antes">Precio Normal: $9.50</span>
+                        <div class="precio-final"><span class="signo">$</span>7.50</div>
+                    </div>
+                    <button class="btn-promo pulse-anim"
+                        onclick="window.open('https://wa.me/593992665560?text=Hola,%20quisiera%20reservar%20la%20oferta%20de%20Fin%20de%20Semana:%20Parrillada%20El%20Capi.', '_blank')">
+                        <i class="fab fa-whatsapp"></i> Reservar Mesa
+                    </button>
+                </div>
+            </div>
+
+            <div class="promo-card">
+                <div class="badge-oferta" style="background: var(--naranja);">SUPER DEAL</div>
+                <img src="./IMG/Churrasco.png" alt="Churrasco">
+                <div class="promo-info">
+                    <h3>Churrasco</h3>
+                    <p>El plato más completo de la carta con carne, huevo y aguacate.</p>
+                    <div class="oferta-container">
+                        <span class="precio-antes">Precio Normal: $7.50</span>
+                        <div class="precio-final"><span class="signo">$</span>5.50</div>
+                    </div>
+                    <button class="btn-promo"
+                        onclick="window.open('https://wa.me/593992665560?text=Hola,%20me%20interesa%20pedir%20la%20Super%20Oferta%20del%20Churrasco.', '_blank')">
+                        <i class="fab fa-whatsapp"></i> Pedir Ahora
+                    </button>
+                </div>
+            </div>
+
+            <div class="promo-card">
+                <div class="badge-oferta" style="background: var(--cafe-oscuro);">TRADICIÓN</div>
+                <img src="./IMG/Yahuarlocro.png" alt="Yahuarlocro">
+                <div class="promo-info">
+                    <h3>Yahuarlocro</h3>
+                    <p>Sabor de hogar con aguacate y sangre frita. ¡Como lo hace Lorena!</p>
+                    <div class="oferta-container">
+                        <span class="precio-antes">Precio Normal: $6.00</span>
+                        <div class="precio-final"><span class="signo">$</span>4.50</div>
+                    </div>
+                    <button class="btn-promo"
+                        onclick="window.open('https://wa.me/593992665560?text=Hola,%20quisiera%20probar%20el%20Yahuarlocro%20de%20la%20casa.', '_blank')">
+                        <i class="fab fa-whatsapp"></i> Probar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="menu" class="container bg-crema">
+        <h2>Nuestra Carta</h2>
+        <div class="filtros">
+            <button onclick="dibujarMenu('todos')">Todos</button>
+            <button onclick="dibujarMenu('Desayunos')">Desayunos</button>
+            <button onclick="dibujarMenu('Almuerzos')">Almuerzos</button>
+            <button onclick="dibujarMenu('Meriendas')">Meriendas</button>
+            <button onclick="dibujarMenu('Tipicos')">Típicos</button>
+            <button onclick="dibujarMenu('Carta')">A la Carta</button>
+            <button onclick="dibujarMenu('Bebidas')">Bebidas</button>
+        </div>
+        <div id="lista-platos" class="grid-menu"></div>
+    </section>
 
     <section class="cta-section"
         style="background: linear-gradient(135deg, #4E342E 0%, #6D4C41 100%); padding: 60px 20px; text-align: center; color: white;">

@@ -80,3 +80,57 @@ function cargarMenu(filtro) {
         contenedor.appendChild(div);
     });
 }
+
+// Alias para compatibilidad con botones del HTML
+function dibujarMenu(filtro) {
+    cargarMenu(filtro);
+}
+
+// =========================================
+// MOBILE MENU TOGGLE
+// =========================================
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle && navLinks) {
+        // Toggle menu cuando se hace clic en el botón
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+
+            // Cambiar icono entre hamburguesa y X
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menu al hacer clic en un enlace
+        const menuItems = navLinks.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function () {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Cerrar menu al hacer clic fuera del menú
+        document.addEventListener('click', function (e) {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        });
+    }
+});

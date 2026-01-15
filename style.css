@@ -692,17 +692,82 @@ h2::after {
     color: #a1887f;
 }
 
+/* =========================================
+   MOBILE MENU TOGGLE
+   ========================================= */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--crema-fondo);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s;
+}
+
+.menu-toggle:hover {
+    color: var(--dorado);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN - MOBILE
+   ========================================= */
 @media (max-width: 768px) {
 
-    .logo-wrapper {
-        width: 100px;
-        height: 100px;
-        margin-top: 15px;
+    /* Navigation */
+    .navbar {
+        padding: 0 1rem;
+        height: 70px;
     }
 
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo-wrapper {
+        width: 80px;
+        height: 80px;
+        margin-top: 25px;
+        border: 3px solid #FFF8E1;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background-color: var(--cafe-oscuro);
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        padding: 2rem 1rem;
+        gap: 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 248, 225, 0.1);
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 1.2rem;
+        padding: 10px 15px;
+    }
+
+    /* Hero Section */
     .hero-carousel {
-        height: 40vh;
-        min-height: 250px;
+        height: 50vh;
+        min-height: 300px;
     }
 
     .slide {
@@ -712,36 +777,41 @@ h2::after {
     }
 
     .hero-content h1 {
-        font-size: 1.5rem;
-        text-shadow: 2px 2px 4px #000;
+        font-size: 2rem;
+        text-shadow: 2px 2px 6px #000;
     }
 
     .hero-content p {
-        font-size: 0.9rem;
-        margin-bottom: 10px;
+        font-size: 1rem;
+        margin-bottom: 15px;
     }
 
     .hero-content .btn-cta {
-        padding: 8px 20px;
-        font-size: 0.9rem;
+        padding: 10px 25px;
+        font-size: 1rem;
     }
 
-    .navbar {
-        padding: 0 1rem;
+    /* Sections */
+    .container {
+        padding: 2rem 1rem;
     }
 
-    .nav-links {
-        display: none;
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
     }
 
+    /* Historia */
     .historia-content {
         flex-direction: column;
+        gap: 20px;
     }
 
     .historia-galeria {
         flex-direction: column;
         height: auto;
         width: 100%;
+        min-width: unset;
         margin-bottom: 20px;
     }
 
@@ -764,12 +834,271 @@ h2::after {
         width: 50%;
     }
 
+    .texto-historia {
+        min-width: unset;
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .texto-historia h3 {
+        font-size: 2rem;
+    }
+
+    /* Promociones */
+    .promo-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px 0;
+    }
+
+    .highlight-card {
+        transform: scale(1);
+    }
+
+    .promo-info {
+        padding: 20px;
+    }
+
+    .promo-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .precio-final {
+        font-size: 2.5rem;
+    }
+
+    /* Filtros */
+    .filtros {
+        gap: 8px;
+    }
+
+    .filtros button {
+        padding: 6px 15px;
+        font-size: 0.85rem;
+    }
+
+    /* Menu Grid */
     .grid-menu {
         grid-template-columns: 1fr;
-        padding: 0 10px;
+        gap: 20px;
     }
 
     .plato-card {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* CTA Section - CRITICAL FIX */
+    .cta-section {
+        padding: 40px 15px !important;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .cta-section p {
+        font-size: 1rem !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px;
+    }
+
+    .cta-section .btn-cta {
+        padding: 12px 25px !important;
+        font-size: 0.95rem !important;
+        margin: 5px 0 !important;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center !important;
+    }
+
+    .cta-section>div>div {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    /* Footer */
+    footer {
+        padding: 30px 15px 15px !important;
+    }
+
+    footer>div {
+        padding: 0 !important;
+    }
+
+    footer>div>div[style*="grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+        margin-bottom: 20px !important;
+    }
+
+    footer img[alt="El Capi"] {
+        width: 60px !important;
+    }
+
+    footer h3,
+    footer h4 {
+        font-size: 1.3rem !important;
+    }
+
+    footer p,
+    footer a {
+        font-size: 0.9rem !important;
+    }
+
+    footer ul {
+        text-align: left;
+    }
+
+    footer .social-icons-footer,
+    footer div[style*="display: flex"] {
+        justify-content: flex-start !important;
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem;
+        padding: 15px 10px;
+    }
+
+    /* Ubicacion Page */
+    section[style*="margin-top: 120px"] {
+        margin-top: 90px !important;
+        padding-bottom: 30px !important;
+    }
+
+    section[style*="margin-top: 120px"]>div>div {
+        padding: 25px !important;
+    }
+
+    section[style*="margin-top: 120px"] h3 {
+        font-size: 1.5rem !important;
+    }
+
+    section[style*="margin-top: 120px"] p {
+        font-size: 0.95rem !important;
+    }
+
+    section[style*="margin-top: 120px"]>div>div>div {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+
+    section[style*="margin-top: 120px"] iframe {
+        height: 250px !important;
+    }
+
+    /* General Button Improvements */
+    .btn-cta,
+    .btn-promo {
+        font-size: 0.95rem !important;
+        padding: 10px 20px !important;
+    }
+
+    /* Loader */
+    .logo-loader {
+        width: 200px;
+    }
+
+    #porcentaje {
+        font-size: 2.5rem;
+    }
+
+    .loader-content p {
+        font-size: 1.4rem;
+    }
+}
+
+/* =========================================
+   TABLET RESPONSIVE (768px - 1024px)
+   ========================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.3rem;
+    }
+
+    .container {
+        padding: 3rem 2rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .promo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================
+   SMALL MOBILE (max 480px)
+   ========================================= */
+@media (max-width: 480px) {
+
+    .navbar {
+        height: 60px;
+    }
+
+    .logo-wrapper {
+        width: 60px;
+        height: 60px;
+        margin-top: 20px;
+    }
+
+    .menu-toggle {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .hero-carousel {
+        height: 40vh;
+        min-height: 250px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .texto-historia h3 {
+        font-size: 1.6rem;
+    }
+
+    .cta-section h2 {
+        font-size: 1.7rem !important;
+    }
+
+    .cta-section p {
+        font-size: 0.9rem !important;
+    }
+
+    .cta-section .btn-cta {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+    }
+
+    footer h3,
+    footer h4 {
+        font-size: 1.1rem !important;
     }
 }
